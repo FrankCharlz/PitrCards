@@ -18,10 +18,9 @@ public class Game {
 			for (int suit : Suit.STANDARD_SUITS) {
 				mainDeck.add(new Card(suit, rank) );
 			}
-
 		}
 		if (deckType == Deck.SUPER_DECK) { mainDeck.useJockeys(); }
-		//mainDeck.shuffle(); mainDeck.shuffle();//SHUFFLE TWICE..
+		mainDeck.shuffle();
 
 	}
 
