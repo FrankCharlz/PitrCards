@@ -18,13 +18,15 @@ public class AnziaHapa {
 
 		g.setPlayers(m,n);
 		g.prepareDeck(Deck.SUPER_DECK);
-		g.dealCards(22);
+		g.dealCards(20);
 		
 		Deck h = g.getDeck();
-		h.showOff();
+		//h.showOff();
 		
-		h.sort();
-		h.showOff();
+		//h.sort();
+		//h.showOff();
+		
+		testShuffle();
 		
 		
 
@@ -38,7 +40,7 @@ public class AnziaHapa {
 		int sum = 0;
 		int iterations = 1000;
 		int idadi = 54;
-		char suit = '2';
+		int suit = Rank.RANK_6;
 		for (int h=0; h<iterations; h++) {
 			Game game = new Game();
 			game.prepareDeck(Deck.SUPER_DECK);

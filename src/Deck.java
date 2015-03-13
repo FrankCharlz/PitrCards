@@ -118,13 +118,13 @@ public class Deck {
 		return results;
 	}
 
-	public ArrayList<Integer> doMeHaveRank(char rank){
+	public ArrayList<Integer> doMeHaveRank(int suit){
 		ArrayList<Integer> results = new ArrayList<Integer>();
 		int index = -1;
 
 		for (Card c : this.deck) {
 			index++;
-			if (c.getRank() == rank) {
+			if (c.getRank() == suit) {
 				results.add(index);
 			}
 		}
