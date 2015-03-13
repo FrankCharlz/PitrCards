@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 
@@ -50,16 +51,7 @@ public class Deck {
 	}
 
 	public void shuffle() {
-		int urefu = this.deck.size();
-		int ri;
-		Card removedCard;
-		for (int x = 0; x < urefu; x++) {
-			ri = rn.nextInt(urefu);
-			removedCard = this.deck.remove(ri);
-			this.deck.add(removedCard);
-		}
-		//this loop keep removing cards at random positions and
-		//add them to the end of the list...
+		Collections.shuffle(this.deck);
 	}
 
 	public ArrayList<Card> getCards() {
@@ -80,8 +72,8 @@ public class Deck {
 
 	public void useJockeys() {
 		if (!this.itHasJockeys) {
-			this.deck.add(new Jockey(Suit.JOKA_BLACK, Rank.RANK_JOKA));
-			this.deck.add(new Jockey(Suit.JOKA_RED, Rank.RANK_JOKA));
+			this.deck.add(new Card(Suit.JOKA_BLACK, Rank.RANK_JOKA));
+			this.deck.add(new Card(Suit.JOKA_RED, Rank.RANK_JOKA));
 			this.itHasJockeys = !this.itHasJockeys;
 		}
 	}
@@ -90,14 +82,9 @@ public class Deck {
 		return this.deck.size();
 	}
 
-	public void prioritize() {
 
-	}
-
-
-	public void panga() {
-		
-
+	public void sort() {
+		Collections.sort(this.deck);
 	}
 	
 	public int containsUa(Card x){

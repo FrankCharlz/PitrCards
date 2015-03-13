@@ -14,14 +14,14 @@ public class Game {
 	}
 
 	public void prepareDeck(int deckType) {
-		for (int suit : Suit.STANDARD_SUITS) {
-			for (int rank : Rank.STANDARD_RANKS){
+		for (int rank : Rank.STANDARD_RANKS){
+			for (int suit : Suit.STANDARD_SUITS) {
 				mainDeck.add(new Card(suit, rank) );
 			}
 
 		}
 		if (deckType == Deck.SUPER_DECK) { mainDeck.useJockeys(); }
-		mainDeck.shuffle(); mainDeck.shuffle();//SHUFFLE TWICE..
+		//mainDeck.shuffle(); mainDeck.shuffle();//SHUFFLE TWICE..
 
 	}
 

@@ -1,5 +1,8 @@
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Scanner;
+
 
 
 public class AnziaHapa {
@@ -15,29 +18,15 @@ public class AnziaHapa {
 
 		g.setPlayers(m,n);
 		g.prepareDeck(Deck.SUPER_DECK);
-		//g.dealCards(20);
-
-		//Card mchezo = g.setMchezo();
-		//System.out.print("mchezo ni : "); mchezo.showOff();
-		g.getDeck().showOff();
-		//ArrayList<Integer> a = g.getDeck().doMeHaveUa(Suit.JEMBE);
+		g.dealCards(22);
 		
-	
-		//System.out.println(a+"\n"+b);
-
-		/*
-		while(true) {
-			Card temp = mchezo;
-			mchezo = m.play(mchezo);
-			if (mchezo != null) {
-				mchezo.showOff();
-				mePlay(mchezo,m,n);
-			} else {
-				System.out.println("kalamba"); 
-				mchezo = temp;
-				mchezo = mePlay(mchezo, m, n);
-			}
-		}*/
+		Deck h = g.getDeck();
+		h.showOff();
+		
+		h.sort();
+		h.showOff();
+		
+		
 
 
 		System.out.println("Time : "+(System.currentTimeMillis()-st)); 

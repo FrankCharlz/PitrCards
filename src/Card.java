@@ -1,16 +1,16 @@
 
-public class Card {
+public class Card implements Comparable<Card> {
 
 	private final int value;
 	private final int suit;
 	private final int rank;
 	private final boolean special;
 
-	public Card(int suit, int rankJoka) {
-		this.suit = rankJoka;
-		this.rank = rankJoka;
-		this.value = CardBytes.setValue(rankJoka);
-		this.special = CardBytes.isSpecial(rankJoka);
+	public Card(int suit, int rank) {
+		this.suit = suit;
+		this.rank = rank;
+		this.value = CardBytes.setValue(rank);
+		this.special = CardBytes.isSpecial(rank);
 	}
 
 	public int getValue() {
@@ -27,36 +27,32 @@ public class Card {
 
 
 	public void showOff() {
-		String suit_;
-		switch (this.getSuit()) {
-		case Suit.JEMBE: 
-			suit_ = "JEMBE";
-			break;
+		System.out.println(getRankAsString() +" : "+getSuitAsString()+ " : "+getValue());
+	}
 
-		case Suit.KARANGA: 
-			suit_ = "KARANGA";
-			break;
+	private String getSuitAsString() {
+		return CardBytes.getSuitAsString(this.suit);
+	}
 
-		case Suit.KISU: 
-			suit_ = "KISU";
-			break;
+	private String getRankAsString() {
+		return CardBytes.getRankAsString(this.rank);
+	}
 
-		case Suit.KOPA: 
-			suit_ = "KOPA";
-			break;
-			
-		case Suit.JOKA_BLACK: 
-			suit_ = "BLACK_JOKA";
-			break;
-			
-		case Suit.JOKA_RED: 
-			suit_ = "RED_JOKA";
-			break;
-			
-		default:
-			suit_ = "defect somewhere";
-			break;
-		}
-		System.out.println(this.getRank() +" : "+ suit_ + " : "+this.getValue());
+	private int compareValue(Card anotherCard){
+		return (this.getValue() - anotherCard.getValue());
+	}
+	
+	private int compareSuit(Card anotherCard){
+		return (this.getSuit() - anotherCard.getSuit());
+	}
+	
+	@Override
+	public int compareTo(Card anotherCard) {
+		//if the values are equal.. then compare suits..
+		if (compareValue(anotherCard) == 0)
+			return compareSuit(anotherCard);
+		else
+			return compareValue(anotherCard);
+		
 	}
 }

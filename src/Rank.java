@@ -18,7 +18,6 @@ public class Rank {
 	public static final int RANK_JOKA = 0x20f014;
 	
 	public static final int[] STANDARD_RANKS = {
-		RANK_10,
 		RANK_2,
 		RANK_3,
 		RANK_4,
@@ -27,6 +26,7 @@ public class Rank {
 		RANK_8,
 		RANK_7,
 		RANK_9,
+		RANK_10,
 		RANK_A,
 		RANK_Q,
 		RANK_K,
