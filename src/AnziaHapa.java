@@ -24,9 +24,9 @@ public class AnziaHapa {
 		//h.showOff();
 		
 		//h.sort();
-		//h.showOff();
+		h.showOff();
 		
-		testShuffle();
+		//testShuffle();
 		
 		
 
