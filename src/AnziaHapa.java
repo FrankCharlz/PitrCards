@@ -1,6 +1,3 @@
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.Scanner;
 
 
@@ -12,21 +9,22 @@ public class AnziaHapa {
 	public static void main(String[] args) {
 		long st = System.currentTimeMillis();
 		Game g = new Game();
+		g.setType(Game.type.ALBASITINI);
+		g.setDeckType(Deck.type.SUPER_DECK);
+		g.init();
 
-		Player m = new Player("FRANK");
-		Player n = new Player("NDESI");
+		Player m = new Player("KIKWETE");
+		FrankAI f = new FrankAI();
+		
 
-		g.setPlayers(m,n);
-		g.prepareDeck(Deck.SUPER_DECK);
-		g.dealCards(20);
+		g.setPlayers(m,f);
+		g.dealCards(4);
 		
-		Deck h = g.getDeck();
-		//h.showOff();
+		Card alalaye = g.mainDeck.pop();
+		alalaye.showOff();
 		
-		//h.sort();
-		h.showOff();
 		
-		//testShuffle();
+		
 		
 		
 
@@ -34,23 +32,6 @@ public class AnziaHapa {
 		System.out.println("Time : "+(System.currentTimeMillis()-st)); 
 
 
-	}
-
-	private static void testShuffle() {
-		int sum = 0;
-		int iterations = 1000;
-		int idadi = 54;
-		int suit = Rank.RANK_6;
-		for (int h=0; h<iterations; h++) {
-			Game game = new Game();
-			game.prepareDeck(Deck.SUPER_DECK);
-			game.getDeck().removeKibundaAt(0, game.getDeck().size()-idadi);
-			//game.getDeck().showOff();
-			ArrayList<Integer> b = game.getDeck().doMeHaveRank(suit);
-			sum +=b.size();
-		}
-		System.out.println("Probability is : "+(sum/(float)iterations)/(float)(idadi));
-		
 	}
 
 	private static Card mePlay(Card mchezo, Player m, Player n) {

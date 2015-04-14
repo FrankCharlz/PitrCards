@@ -1,15 +1,16 @@
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Random;
 
 
 public class Deck {
 
 	private ArrayList<Card> deck;
-	private Random rn = new Random();
 	private boolean itHasJockeys = false;
-	public final static int NORMAL_DECK = 0;
-	public final static int SUPER_DECK = 1;
+	
+	public final static class type {
+		public final static int NORMAL_DECK = 0;
+		public final static int SUPER_DECK = 1;
+	}
 
 	public Deck() {
 		this.deck = new ArrayList<Card>();
@@ -70,14 +71,6 @@ public class Deck {
 		return itHasJockeys;
 	}
 
-	public void useJockeys() {
-		if (!this.itHasJockeys) {
-			this.deck.add(new Card(Suit.JOKA_BLACK, Rank.RANK_JOKA));
-			this.deck.add(new Card(Suit.JOKA_RED, Rank.RANK_JOKA));
-			this.itHasJockeys = !this.itHasJockeys;
-		}
-	}
-
 	public int size() {
 		return this.deck.size();
 	}
@@ -86,7 +79,7 @@ public class Deck {
 	public void sort() {
 		Collections.sort(this.deck);
 	}
-	
+
 	public int containsUa(Card x){
 		int index = 0;
 		for (Card c : this.deck) {

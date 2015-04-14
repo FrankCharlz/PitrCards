@@ -1,5 +1,5 @@
 
-public class Rank {
+public final class Rank {
 	
 	public static final int RANK_A = 0x20f001;
 	public static final int RANK_Q = 0x20f002;
@@ -18,19 +18,19 @@ public class Rank {
 	public static final int RANK_JOKA = 0x20f014;
 	
 	public static final int[] STANDARD_RANKS = {
+		RANK_A,
 		RANK_2,
 		RANK_3,
 		RANK_4,
 		RANK_5,
 		RANK_6,
-		RANK_8,
 		RANK_7,
+		RANK_8,
 		RANK_9,
 		RANK_10,
-		RANK_A,
-		RANK_Q,
 		RANK_K,
-		RANK_J
+		RANK_J,
+		RANK_Q
 		};
 	
 }

@@ -1,22 +1,23 @@
 import java.util.Random;
 
 
-public class Frank extends Player{
+public class FrankAI extends Player{
 	private final float SPY_EFFECT = 1f;
 	private final float DARK_MAGIC = 1f;
-	
-	public Frank(String players_name) {
-		super(players_name);
+
+	public FrankAI() {
+		super("FRANK");//CALL THE SUPER CONSTRUCTOR WITH NAME..
 	}
-	
+
+
 	public void spyOpponent() {
 	}
-	
+
 	public void spyDeck() {
 	}
-	
-public Card play(Card mchezo) {
-		
+
+	public Card play(Card mchezo) {
+
 		if (mchezo == null) {
 			return chezaKarataYoyote();
 		} else {
@@ -39,14 +40,20 @@ public Card play(Card mchezo) {
 	}
 
 
-	
+
 	private Card ramba(int x) {
-		 Game.mainDeck.pop(x);
-		 return null;//karamba so he plays nothing....returns null
+		Game.mainDeck.pop(x);
+		return null;//karamba so he plays nothing....returns null
 	}
 
 	private Card chezaKarataYoyote() {
 		return this.playerDeck.removeAt(new Random().nextInt(this.playerDeck.size()));
+	}
+	
+	public void prioritize() {
+		for (Card card : this.playerDeck.getCards()) {
+			if (card.isSpecial()) {card.addPriority(2);}
+		}
 	}
 
 

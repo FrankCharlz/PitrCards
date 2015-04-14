@@ -5,6 +5,8 @@ public class Card implements Comparable<Card> {
 	private final int suit;
 	private final int rank;
 	private final boolean special;
+	
+	private int priority = 0;
 
 	public Card(int suit, int rank) {
 		this.suit = suit;
@@ -25,9 +27,20 @@ public class Card implements Comparable<Card> {
 		return rank;
 	}
 
+	public int getPriority() {
+		return priority;
+	}
+	
+	public boolean isSpecial() {
+		return special;
+	}
+	
+	public void addPriority(int x) {
+		this.priority+=x;
+	}
 
 	public void showOff() {
-		System.out.println(getRankAsString() +" : "+getSuitAsString()+ " : "+getValue());
+		System.out.println(getRankAsString() + " : "+getValue()+" : "+getSuitAsString());
 	}
 
 	private String getSuitAsString() {
@@ -39,12 +52,13 @@ public class Card implements Comparable<Card> {
 	}
 
 	private int compareValue(Card anotherCard){
-		return (this.getValue() - anotherCard.getValue());
+		return (this.getRank() - anotherCard.getRank());//rank~value
 	}
 	
 	private int compareSuit(Card anotherCard){
 		return (this.getSuit() - anotherCard.getSuit());
 	}
+	
 	
 	@Override
 	public int compareTo(Card anotherCard) {

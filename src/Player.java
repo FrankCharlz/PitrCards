@@ -2,7 +2,7 @@
 
 public class Player {
 
-	protected Deck playerDeck;
+	public Deck playerDeck;
 	public final String NAME;
 
 	public Player(String players_name) {
@@ -14,9 +14,5 @@ public class Player {
 		this.playerDeck.addKibunda(kibunda);
 	}
 
-	public Kibunda spyOnMe(){
-		return null;
-		
-	}
 
 }
